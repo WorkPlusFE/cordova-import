@@ -35,6 +35,6 @@
     "rollup-watch": "4.3.1"
   },
   "dependencies": {
-    "@w6s/query-string": "^1.2.0"
+    "@w6s/query-string": "1.2.1"
   }
 }
