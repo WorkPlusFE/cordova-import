@@ -4,7 +4,7 @@
 
 ### 如何使用
 
-当前该js的发布地址为`//workplus.io/cordova-import.js`，可在[Release页面](https://github.com/WorkPlusFE/cordova-import/releases/tag/v1.0)进行下载。
+当前该脚本的发布地址为`//workplus.io/cordova-import.js`，可在[Release页面](https://github.com/WorkPlusFE/cordova-import/releases/tag/v1.0)进行下载。
 
 > 单页面应用（SPA）引入一次即可，多页面应用需每个页面都引入
 
