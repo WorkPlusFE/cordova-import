@@ -33,10 +33,10 @@ function getImportUriByPlatformAndType(platform, type) {
 };
 
 function getCurrentPlatformByUserAgent(userAgent) {
-    if (userAgent.indexof('iphone')) {
+    if (userAgent.indexOf('iphone') > -1) {
         return 'iOS';
     }
-    if (userAgent.indexOf('android')) {
+    if (userAgent.indexOf('android') > -1) {
         return 'android';
     }
     return false;
@@ -51,28 +51,29 @@ function scriptGenerator(uri) {
 };
 
 function cordovaImportInit () {
-    const userAgent = navigator.userAgent.toLowerCase();
+    try {
+        const userAgent = navigator.userAgent.toLowerCase();
 
-    // 非 WorkPlus webview 不进行任何处理
-    if (userAgent.indexOf('workplus') === -1) return;
+        // 非 WorkPlus webview 不进行任何处理
+        if (userAgent.indexOf('workplus') === -1) return;
 
-    const platform = getCurrentPlatformByUserAgent(userAgent);
-    if (!platform) return;
-    
-    const SDKScript = getSDKScriptTag();
-    const search = SDKScript.src.split('?')[1];
+        const platform = getCurrentPlatformByUserAgent(userAgent);
+        if (!platform) return;
+        
+        const SDKScript = getSDKScriptTag();
+        if (!SDKScript) return;
 
-    let opts = {};
-    if (search) {
-        try {
+        const search = SDKScript.src.split('?')[1];
+        let opts = {};
+        if (search) {
             opts = parse(search);
-        } catch (err) {
-            console.err(err);
         }
-    }
 
-    const importUri = getImportUriByPlatformAndType(platform, opts.type);
-    scriptGenerator(importUri);
+        const importUri = getImportUriByPlatformAndType(platform, opts.type);
+        scriptGenerator(importUri);
+    } catch (error) {
+        console.error(error);
+    }
 };
 
 cordovaImportInit();

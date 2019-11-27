@@ -4,6 +4,9 @@
   "description": "Simple CordovaJs import util.",
   "main": "lib/@w6s/cordova-import.js",
   "main:min": "lib/@w6s/cordova-import.min.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "ava test/index.js",
     "pretest": "npm run build",
@@ -11,9 +14,15 @@
     "build:prod": "cross-env NODE_ENV=production rollup -c",
     "build": "npm run build:common && npm run build:prod",
     "watch": "rollup -c -w",
-    "prepublish": "npm test"
+    "prepublish": "npm test",
+    "example": "npx serve ./"
   },
-  "keywords": [],
+  "keywords": [
+    "WorkPlusFE",
+    "w6s",
+    "cordova-import",
+    "cordova"
+  ],
   "author": "WorkPlusFE",
   "license": "MIT",
   "devDependencies": {
