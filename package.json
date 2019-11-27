@@ -4,7 +4,6 @@
   "description": "Simple CordovaJs import util.",
   "main": "lib/@w6s/cordova-import.js",
   "main:min": "lib/@w6s/cordova-import.min.js",
-  "jsnext:main": "lib/@w6s/cordova-import.mjs",
   "scripts": {
     "test": "ava test/index.js",
     "pretest": "npm run build",
