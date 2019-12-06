@@ -1,18 +1,17 @@
 'use strict';
 
 const config = {
-    sdkUri: '//workplus.io/cordova-import.js',
-    importTypes: ['http', 'local'],
-    defaultImportType: 'http',
+  SDK_HOST: '//workplus.io/',
+  
+  // 不同平台的 CordovaJs
+  cordovajs: {
+    iOS: 'ios.cordova.min.js',
+    android: 'android.cordova.min.js',
+    local: 'applocal://cordova.min.js',
+  },
 
-    // 不同平台的 CordovaJs 地址
-    cordovaImportUri: {
-        iOS: '//workplus.io/ios.cordova.min.js',
-        android: '//workplus.io/android.cordova.min.js',
-        local: 'applocal://cordova.min.js',
-    },
-
-    pcSDKUri: '',
+  // =.=!
+  pcSDKUri: '',
 };
 
 export default config;

@@ -3,6 +3,7 @@ import babel from 'rollup-plugin-babel';
 import nodeResolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import filesize from 'rollup-plugin-filesize';
+import replace from '@rollup/plugin-replace';
 import { uglify } from 'rollup-plugin-uglify';
 
 const resolveFile = (filePath) => path.join(__dirname, '.', filePath);
@@ -16,7 +17,6 @@ const banner =
   ' */\n';
 
 const config = { 
-  input: './index.js',
   plugins: [
     nodeResolve(),
     commonjs(),
@@ -28,11 +28,16 @@ const config = {
     format: 'umd',
     name: 'w6sCordovaImport',
     banner: banner,
+  }, {
+    file: resolveFile(pkg['module']),
+    format: 'esm',
+    banner: banner,
   }],
 };
 
 if (env === 'production') {
   config.plugins.push(
+    replace({ 'process.env.NODE_ENV': '"production"' }),
     uglify({
       compress: {
         pure_getters: true,
@@ -52,7 +57,7 @@ if (env === 'production') {
   );
 
   config.output = [{
-    file: resolveFile(pkg['main:min']),
+    file: resolveFile(pkg['script:tag']),
     format: 'umd',
     name: 'w6sCordovaImport',
     banner: banner,

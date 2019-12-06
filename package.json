@@ -1,18 +1,19 @@
 {
   "name": "@w6s/cordova-import",
-  "version": "1.0.0",
-  "description": "Simple CordovaJs import util.",
-  "main": "lib/@w6s/cordova-import.js",
-  "main:min": "lib/@w6s/cordova-import.min.js",
+  "version": "1.1.0",
+  "description": "Automatic CordovaJs import util.",
+  "main": "lib/@w6s/cordova-import-es.js",
+  "module": "lib/@w6s/cordova-import.mjs",
+  "script:tag": "lib/@w6s/cordova-import.js",
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "test": "ava test/index.js",
     "pretest": "npm run build",
-    "build:common": "rollup -c",
-    "build:prod": "cross-env NODE_ENV=production rollup -c",
-    "build": "npm run build:common && npm run build:prod",
+    "build:esm": "rollup -i ./npm-entry.js -c",
+    "build:script:tag": "cross-env NODE_ENV=production rollup -i ./script-tag-entry.js -c",
+    "build": "npm run build:esm && npm run build:script:tag",
     "watch": "rollup -c -w",
     "prepublish": "npm test",
     "example": "npx serve ./"
@@ -28,6 +29,7 @@
   "devDependencies": {
     "@babel/core": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
+    "@rollup/plugin-replace": "^2.2.1",
     "ava": "^0.17.0",
     "babel-eslint": "10.0.3",
     "babel-plugin-external-helpers": "^6.8.0",
@@ -43,6 +45,9 @@
     "rollup-watch": "4.3.1"
   },
   "dependencies": {
-    "@w6s/query-string": "1.2.1"
+    "@w6s/query-string": "1.2.1",
+    "invariant": "^2.2.4",
+    "lodash.isstring": "^4.0.1",
+    "lodash.merge": "^4.6.2"
   }
 }

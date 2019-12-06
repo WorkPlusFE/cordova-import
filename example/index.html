@@ -1,37 +1,42 @@
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- 正式测试请替换 src 为 config.sdkUri，必须保持一致，否则注入 script 失败 -->
-    <script src="../lib/@w6s/cordova-import.js?type=local" type="text/javascript"></script>
-    <title>Cordova Import Demo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- 正式测试请替换 src 为 config.SDK_HOST，必须保持一致，否则注入 script 失败 -->
+  <script src="../lib/@w6s/cordova-import.js" type="text/javascript"></script>
+  <title>Cordova Import Demo</title>
 </head>
+
 <body>
-    <div id="app">
-        <h3 id="cordova-version"></h3>
-        <p id="user-agent"></p>
-        <p id="location"></p>        
-    </div>
-    <script type="text/javascript">
-        const cordovaVersionElm = document.getElementById('cordova-version');
-        const locationElm = document.getElementById('location');
+  <div id="app">
+    <h3 id="cordova-version"></h3>
+    <p id="user-agent"></p>
+    <p id="location"></p>
+  </div>
+  <script type="text/javascript">
+    window.onload = function() {
+      const cordovaVersionElm = document.getElementById('cordova-version');
+      const locationElm = document.getElementById('location');
 
-        const userAgentElm = document.getElementById('user-agent');
-        userAgentElm.innerHTML = navigator.userAgent;
+      const userAgentElm = document.getElementById('user-agent');
+      userAgentElm.innerHTML = navigator.userAgent;
 
-        document.addEventListener('deviceready', function() {
-            cordovaVersionElm.innerHTML = `CordovaJs v${cordova.version}`;
+      document.addEventListener('deviceready', function () {
+        cordovaVersionElm.innerHTML = `CordovaJs v${cordova.version}`;
 
-            cordova.exec(function(res) {
-                locationElm.innerHTML = JSON.stringify(res);
-            }, function(err) {
-                locationElm.innerHTML = JSON.stringify(err);
-            }, 
-            'WorkPlus_Location', 
-            'getLocation', 
-            []);
-        }, false);
-    </script>
+        cordova.exec(function (res) {
+          locationElm.innerHTML = JSON.stringify(res);
+        }, function (err) {
+          locationElm.innerHTML = JSON.stringify(err);
+        },
+          'WorkPlus_Location',
+          'getLocation',
+          []);
+      }, false);
+    }
+  </script>
 </body>
+
 </html>
