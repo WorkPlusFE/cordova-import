@@ -1,4 +1,4 @@
-# @w6s/cordova-import [![Build Status](https://travis-ci.org/WorkPlusFE/cordova-import.svg?branch=master)](https://travis-ci.org/WorkPlusFE/cordova-import)
+# cordova-import [![Build Status](https://travis-ci.org/WorkPlusFE/cordova-import.svg?branch=master)](https://travis-ci.org/WorkPlusFE/cordova-import)
 
 > `cordova-import.js`提供在 WorkPlus WebView 中注入 cordova 的能力，默认以`local`的方式注入，但同时会根据不同的环境，例如轻应用的访问协议（http、https），是否在 iframe 内打开等，自动选择最佳的注入方式，开发者无需关注过多的注入细节，开箱即用，一步到位！
 
@@ -6,7 +6,7 @@
 
 #### 一、通过 script 标签直接引入
 
-当前该脚本的发布地址为`//workplus.io/cordova-import.js`，可在[Release页面](https://github.com/WorkPlusFE/cordova-import/releases/tag/v1.0)进行下载。
+当前该脚本的发布地址为`//workplus.io/cordova-import.js`，可在[Release页面](https://github.com/WorkPlusFE/cordova-import/releases/tag/v1.1)进行下载。
 
 > 单页面应用（SPA）引入一次即可，多页面应用还需在每个页面都单独引入
 
