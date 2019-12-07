@@ -22,7 +22,7 @@ const config = {
     commonjs(),
     babel(),
   ],
-  external: null,
+  external: Object.keys(pkg.dependencies),
   output: [{
     file: resolveFile(pkg['main']),
     format: 'umd',
@@ -36,6 +36,7 @@ const config = {
 };
 
 if (env === 'production') {
+  config.external = null;
   config.plugins.push(
     replace({ 'process.env.NODE_ENV': '"production"' }),
     uglify({

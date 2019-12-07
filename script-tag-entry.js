@@ -1,6 +1,5 @@
 'use strict';
 
-import { parse } from '@w6s/query-string';
 import invariant from 'invariant';
 import CordovaImportLib from './lib';
 import { scriptGenerator } from './utils';

@@ -1,6 +1,6 @@
 {
   "name": "@w6s/cordova-import",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Automatic CordovaJs import util.",
   "main": "lib/@w6s/cordova-import-es.js",
   "module": "lib/@w6s/cordova-import.mjs",
@@ -45,7 +45,6 @@
     "rollup-watch": "4.3.1"
   },
   "dependencies": {
-    "@w6s/query-string": "1.2.1",
     "invariant": "^2.2.4",
     "lodash.isstring": "^4.0.1",
     "lodash.merge": "^4.6.2"

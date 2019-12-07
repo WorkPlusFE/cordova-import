@@ -675,11 +675,6 @@
   dependencies:
     "@types/node" "*"
 
-"@w6s/query-string@1.2.1":
-  version "1.2.1"
-  resolved "https://registry.npm.taobao.org/@w6s/query-string/download/@w6s/query-string-1.2.1.tgz#cb69a01097bfa28ce5c77c06cf730fd0acca10bb"
-  integrity sha1-y2mgEJe/oozlx3wGz3MP0KzKELs=
-
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.npm.taobao.org/abbrev/download/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
