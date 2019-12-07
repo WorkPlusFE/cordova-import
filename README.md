@@ -1,4 +1,4 @@
-# cordova-import [![Build Status](https://travis-ci.org/WorkPlusFE/cordova-import.svg?branch=master)](https://travis-ci.org/WorkPlusFE/cordova-import)
+# cordova-import [![Build Status](https://travis-ci.org/WorkPlusFE/cordova-import.svg?branch=master)](https://travis-ci.org/WorkPlusFE/cordova-import) [![npm version](https://badge.fury.io/js/%40w6s%2Fcordova-import.svg)](https://badge.fury.io/js/%40w6s%2Fcordova-import)
 
 > `cordova-import.js`提供在 WorkPlus WebView 中注入 cordova 的能力，默认以`local`的方式注入，但同时会根据不同的环境，例如轻应用的访问协议（http、https），是否在 iframe 内打开等，自动选择最佳的注入方式，开发者无需关注过多的注入细节，开箱即用，一步到位！
 
