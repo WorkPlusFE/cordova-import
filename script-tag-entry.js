@@ -2,15 +2,18 @@
 
 import invariant from 'invariant';
 import CordovaImportLib from './lib';
-import { scriptGenerator } from './utils';
+import { 
+  scriptGenerator, 
+  getAssetDomainUrl, 
+  inWorkPlus,
+} from './utils';
 
 function cordovaImportInit() {
   try {
-    const lib = new CordovaImportLib();
+    if (!inWorkPlus()) return;
 
-    // 非 WorkPlus webview 不进行任何处理
-    if (!lib.openInWorkPlus()) return;
-
+    const sdkUri = getAssetDomainUrl(); // 自动获取资源路径
+    const lib = new CordovaImportLib(sdkUri);
     const importUri = lib.getImportUri();
     scriptGenerator(importUri);
   } catch (error) {

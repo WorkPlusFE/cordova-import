@@ -4,9 +4,11 @@
 
 ### 如何使用
 
-#### 一、通过 script 标签直接引入
+**重要** 请确保脚本`cordova-import.js`与`ios.cordova.min.js`及`android.cordova.min.js`放置到同一个资源目录，以确保脚本的正确加载。并且，为了提高资源的下载速度，请配置相关服务端的资源压缩策略，例如开启`gzip`。
 
-当前该脚本的发布地址为`//workplus.io/cordova-import.js`，可在[Release页面](https://github.com/WorkPlusFE/cordova-import/releases/tag/v1.1)进行下载。
+相关脚本可在[Release页面](https://github.com/WorkPlusFE/cordova-import/releases/tag/v1.1)进行下载。
+
+#### 一、通过 script 标签直接引入
 
 > 单页面应用（SPA）引入一次即可，多页面应用还需在每个页面都单独引入
 

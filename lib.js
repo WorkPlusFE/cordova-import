@@ -9,7 +9,6 @@ import {
   isiOSPlatform,
   isAndroidPlatform,
   getCordovaJsUriByPlatform,
-  inWorkPlus,
 } from './utils';
 
 export default class CordovaImportLib {
@@ -25,20 +24,17 @@ export default class CordovaImportLib {
     return window.navigator.userAgent.toLowerCase();
   }
 
-  openInWorkPlus() {
-    return inWorkPlus(this.userAgent);
-  }
-
   /**
    * 返回注入的地址
    * 
    * 默认使用 local模式，当检测到是 https协议 (安卓) 或在 iframe 中打开时，强制使用 http 模式
    */
   getImportUri() {
-    const platform = this.getCurrentPlatformByUserAgent();
-    invariant(platform, 'Please open in the correct webview');
+    // 以 es模块 初始化的情况下，不传人 SDK_HOST，默认只需要支持 local
+    if (this.mustUseHttpModel() && this.config.SDK_HOST) {
+      const platform = this.getCurrentPlatformByUserAgent();
+      invariant(platform, 'Please open in the correct webview');
 
-    if (this.mustUseHttpModel()) {
       return getCordovaJsUriByPlatform(this.config, platform);
     }
 

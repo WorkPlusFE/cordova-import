@@ -1,7 +1,10 @@
 'use strict';
 
 const config = {
-  SDK_HOST: '//workplus.io/',
+  SDK_NAME: 'cordova-import.js',
+
+  // 只有作为es模块初始化时，才需配置
+  SDK_HOST: null,
   
   // 不同平台的 CordovaJs
   cordovajs: {

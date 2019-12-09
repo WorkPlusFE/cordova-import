@@ -1,6 +1,7 @@
 'use strict';
 
 import isString from 'lodash.isstring';
+import config from './config';
 
 // 是否为 https 模式
 export const isHttpsProtocol = () => window.location.protocol === 'https:';
@@ -13,7 +14,7 @@ export const isAndroidPlatform = userAgent => userAgent.indexOf('android') > -1;
 
 export const getCordovaJsUriByPlatform = (config, platform) => `${config.SDK_HOST}${config.cordovajs[platform]}`;
 
-export const inWorkPlus = userAgent => userAgent.indexOf('workplus') > -1;
+export const inWorkPlus = () => navigator.userAgent.indexOf('workplus') > -1;
 
 export const scriptGenerator = (uri) => {
   const cordovaScriptElement = document.createElement('script');
@@ -30,4 +31,25 @@ export const isValidHost = (uri) => {
   if (uri.indexOf('.') === -1) return false;
   if (uri[uri.length - 1] !== '/') return false;
   return true;
+};
+
+const getSDKScriptTagSrc = () => {
+  const scripts = document.getElementsByTagName("script");
+
+  let matchScriptSrc = '';
+  for (let i = 0; i < scripts.length; i += 1) {
+    const script = scripts[i];
+    if (script.src && script.src.indexOf(`/${config.SDK_NAME}`) > -1) {
+      matchScriptSrc = script.src;
+      break;
+    }
+  }
+  return matchScriptSrc;
+};
+
+export const getAssetDomainUrl = () => {
+  const currentScriptSrc = getSDKScriptTagSrc();
+  if (currentScriptSrc) {
+    return currentScriptSrc.split(config.SDK_NAME)[0];
+  }
 };
