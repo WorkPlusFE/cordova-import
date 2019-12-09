@@ -4,7 +4,7 @@
 
 ### 如何使用
 
-**重要** 请确保脚本`cordova-import.js`与`ios.cordova.min.js`及`android.cordova.min.js`放置到同一个资源目录，以确保脚本的正确加载。并且，为了提高资源的下载速度，请配置相关服务端的资源压缩策略，例如开启`gzip`。
+**请确保脚本`cordova-import.js`与`ios.cordova.min.js`及`android.cordova.min.js`放置到同一个资源目录，以确保脚本的正确加载。并且，为了提高资源的下载速度，请配置相关服务端的资源压缩策略，例如开启`gzip`**。
 
 相关脚本可在[Release页面](https://github.com/WorkPlusFE/cordova-import/releases/tag/v1.1)进行下载。
 
@@ -47,15 +47,17 @@ import CordovaImport from '@w6s/cordova-import';
 CordovaImport.init('//workplus.io/'); // URI 无需带上访问协议，必须以斜杠结尾
 ```
 
-当前仅支持传入 SDK 的访问地址（非必须），默认使用`local`模式，以加速开发效率！
+当前仅支持传入 js 加载地址(非必须），默认使用`local`模式，以加速开发效率！
+
+> 若不传入地址，将完全使用`local`模式，请根据实际情况进行选择
 
 
 ### 配置说明
 
 ```js
 const config = {
-  // 【重要】SDK 的地址，必须正确，否则影响脚本注入
-  SDK_HOST: '//workplus.io/,
+  // 只有作为es模块初始化时，才需配置
+  SDK_HOST: null,
   ...
 
   // 不同平台的 CordovaJs
