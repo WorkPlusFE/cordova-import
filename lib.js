@@ -8,6 +8,7 @@ import {
   inIframe, 
   isiOSPlatform,
   isAndroidPlatform,
+  isX5Webview,
   getCordovaJsUriByPlatform,
 } from './utils';
 
@@ -43,7 +44,7 @@ export default class CordovaImportLib {
 
   mustUseHttpModel() {
     if (inIframe()) return true;
-    if (isHttpsProtocol() && isAndroidPlatform(this.userAgent)) return true;
+    if (isHttpsProtocol() && isAndroidPlatform(this.userAgent) && !isX5Webview()) return true;
     return false;
   }
 

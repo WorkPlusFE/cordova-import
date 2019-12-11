@@ -11,6 +11,7 @@ export const inIframe = () => self.frameElement && self.frameElement.tagName == 
 
 export const isiOSPlatform = userAgent => userAgent.indexOf('iphone') > -1;
 export const isAndroidPlatform = userAgent => userAgent.indexOf('android') > -1;
+export const isX5Webview = userAgent => /x5webkit|mqqbrowser|tbs/.test(userAgent);
 
 export const getCordovaJsUriByPlatform = (config, platform) => `${config.SDK_HOST}${config.cordovajs[platform]}`;
 
